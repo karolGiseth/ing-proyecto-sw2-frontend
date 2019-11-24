@@ -1,0 +1,12 @@
+<!--<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>-->
+  <div >
+    <div class="loginmodal-container">
+      <h1>Iniciar sesión</h1><br>
+      <form>
+        <input type="text" [(ngModel)]="sesion.nombreUsuario" name="user" placeholder="Usuario">
+        <input type="password" [(ngModel)]="sesion.contrasenia" name="pass" placeholder="Contraseña">
+        <button type="submit" name="login" class="btn btn-primary" (click)="iniciarSesion()">Ingresar > </button>
+      </form>
+    </div>
+  </div>
+

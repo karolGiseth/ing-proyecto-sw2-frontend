@@ -1,0 +1,48 @@
+#title{
+    text-align: center;
+    color: aliceblue;
+}
+#boton{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contenido{
+    display: inline-block;
+    justify-content: space-around;
+    align-content: center;
+    margin-right: 8%;
+    float: right;
+    padding-top: 80px;
+}
+.titulo{
+    color: rgb(15, 52, 85);
+    font-size: 38px; 
+    width: 400px;
+    float: right;
+    text-align: center;
+    margin-bottom: 55px; 
+}
+.cont-titulo{
+    align-content: center;
+    align-items: center;
+    margin: auto;
+}
+#parrafo{
+    text-align: center;
+    color: aliceblue;
+}
+
+.fondo{
+    width:100%; 
+    height:750px;
+    background-color: black;
+    background-image: url("../../../assets/background-login.jpg");
+    background-size: 1024px 750px;
+    background-size: 100%;
+    opacity: 0.9;
+    display: block;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+}
