@@ -13,9 +13,9 @@ const httpOptions = {
 export class RepositoryService {
 
   constructor(private req: RequestService) { }
-//poner la url correcta por cada service
-  public findAll(endpoint) {
-    return this.req.get(`/`+endpoint+`/findAll`);
+
+  public getImagenes() {
+    return this.req.get(`imagen-api/find-all`);
   }
 
   public findByRoomCode(code) {
@@ -26,51 +26,16 @@ export class RepositoryService {
     return this.req.get(`/artworksaled-api/findAllByNumberRoom/`, { queryParams: { number_room: code } });
   }
 
-  public findByArtworkName(name) {
-    return this.req.get(`/artwork-api/findByName/`, { queryParams: { name: name } });
-  }
-  public getCode(document){
-    return this.req.get(`/room-api/getCode/`, { queryParams: { document } });
- 
-  }
-  public getTotal (room){
-    return this.req.get(`/artworksaled-api/getTotal/`, { queryParams: { number_room: room } });
-  }
-  public getTotals (){
-    return this.req.get(`/artworksaled-api/getTotals/`);
-  }
-
-  public getTotalT (){
-    return this.req.get(`/customer-api/getTotal/`);
-  }
-
-  public findByDocument(endpoint, document){
-    return this.req.get(`/`+endpoint+`/findByDocument/`, { queryParams: { document: document } });
-  }
-  public findByDocument_(endpoint, document){
-    return this.req.get(`/`+endpoint+`/findByDocument_/`, { queryParams: { document: document } });
-  }
-
   public delete(endpoint, artwork) {
     return this.req.delete(`/`+endpoint+`/delete/`, { queryParams: {inscription_code: artwork.inscription_code} });
   }
 
-  public deleteArtist(endpoint, artist) {
-    return this.req.delete(`/`+endpoint+`/delete/`, {queryParams: {document: artist.document} });
+
+  public enviar(imagen) {
+    return this.req.post(`/imagen-api/create/`, { data: imagen });
   }
 
-  public findById(endpoint,user) {
-    return this.req.get(`/findById/`, { queryParams: { id: user.id } });
-  }
-  public readUsersId(idsesion: number) {
-    return this.req.get(`/findAllByIdsesion/`, { queryParams: { idsesion } });
-  }
-
-  public create(endpoint, entity) {
-    return this.req.post(`/`+endpoint+`/create/`, { data: entity });
-  }
-
-  public updateUser(user) {
-    return this.req.put(`/update`, { data: user });
+  public actualizar(imagen) {
+    return this.req.put(`/imagen-api/update`, { data: imagen });
   }
 }

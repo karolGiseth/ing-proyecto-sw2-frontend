@@ -6,5 +6,5 @@ export class Imagen{
     categoria: string;
     titulo : string;
     descripcion : string;
-    usuario: Usuario; 
+    usuario: Usuario = new Usuario(); 
 }

@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
           if (data) {
             this.sesion = data;
             console.log('sesion--->', this.sesion);
-             // sessionStorage.setItem("sellerD",this..document);
-             // sessionStorage.setItem("sellerName", this.seller.name);
+             sessionStorage.setItem("idUser",this.sesion.usuario.id.toString());
+             sessionStorage.setItem("nombre",this.sesion.usuario.nombre);
             if(this.sesion.usuario.tipoUsuario.id===1){
               this.router.navigate(['annotator']);
             }else{

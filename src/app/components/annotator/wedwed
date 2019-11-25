@@ -1,0 +1,64 @@
+<div style="display: flex; justify-content: left; margin-left: 40px;">
+<div class="col-md-15">
+  <h2>Obras</h2>
+  <form class="form-inline my-3 my-lg-20" id="buscador">
+    <input [(ngModel)]="name" name="name" class="form-control" placeholder="Nombre de la obra" id="name">
+    <button class="btn btn-success my-2 my-sm-0 fas fa-search " id ="btnbuscar" type="submit"(click)= findArtwork(name) ></button>
+  </form>
+
+  <table class="table">
+    <thead id="thead">
+      <tr>
+        <th>Codigo de inscripcion</th>
+        <th>Nombre</th>
+        <th>Precio</th> 
+        <th>Artista</th>
+        <th>  <button class="float-right btn btn-success" (click)="mostrarComponente()" id="btnAddArtwork"> 
+            Añadir obra <i class="fas fa-plus"></i></button>
+        </th>
+        <th></th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let artwork of artworks">
+        <td class="hidden">{{artwork.inscription_code}}</td>
+        <td>{{artwork.name}}</td>
+        <td>{{artwork.price | currency}}</td>
+        <td>{{artwork.artist.name}}</td>
+        <td>
+          <div class="float-center" (click)="deleteArtwork(artwork)">
+            <i class="far fa-trash-alt" style="align-content: center;"></i>
+          </div>
+        </td>
+        <td>
+          <button *ngIf="price(artwork)" class="btn btn-info" (click)="saveArtworkSaled(artwork)">Vender</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="mx-5 mt-20" *ngIf="show" id="container">
+  <form>
+      <div class="row">
+    <div class="form-group">
+      <label>Nombre de la obra</label>
+      <input [(ngModel)]="artwork.name" name="name" class="form-control" placeholder="Nombre de la obra">
+    </div>
+    <div class="form-group">
+      <label>Precio</label>
+      <input [(ngModel)]="artwork.price" name="price" class="form-control" placeholder="Precio">
+    </div>
+      </div>
+      <div class="row">
+   
+    <div class="form-group">
+        <label>Documento del artsta</label>
+        <input [(ngModel)]="artwork.artist.document" name="artist" class="form-control" placeholder="Documento del artsta">
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-primary" (click)="createArtwork(artwork)">Guardar obra</button>
+    </div>
+  </form>
+</div>
+</div>

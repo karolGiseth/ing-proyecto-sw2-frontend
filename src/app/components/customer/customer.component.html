@@ -1,1 +1,16 @@
-<p>customer works!</p>
+<div class="content">
+    <div class="cabecera">
+        <h1>Ingreso de url's de autos</h1>
+        <h3>Cliente: {{nombre}}</h3>
+    </div>
+    <div class="container formulario">
+        <label for="inputPassword5">URL de imagen del auto</label>
+        <input type="url" id="url" class="form-control" [(ngModel)]="imagen.url" placeholder="URL">
+        <small id="passwordHelpBlock" class="form-text text-muted">
+        Asegurese que sea una url de una imagen que termine en .jpg
+        </small>
+        <div class="botton-cont">
+            <button type="button" class="btn btn-primary btn-lg boton" (click)="enviar()">Enviar</button>
+        </div>
+    </div>
+</div>
