@@ -11,10 +11,14 @@ export class CustomerComponent implements OnInit {
 
   imagen: Imagen = new Imagen();
   nombre;
+  idUser;
+  imagenes: Imagen[];
   constructor(private repositoryService: RepositoryService) { }
 
   ngOnInit() {
     this.nombre=sessionStorage.getItem("nombre");
+    this.idUser =sessionStorage.getItem("idUser");
+    this.getImagenes(this.idUser);
   }
   enviar(){
     if(this.imagen.url && this.nombre){
@@ -22,12 +26,21 @@ export class CustomerComponent implements OnInit {
       this.imagen.usuario.id=parseInt(sessionStorage.getItem('idUser'));
       this.repositoryService.enviar(this.imagen).then(data =>{
         alert('AUTO ENVIADO');
+        this.imagenes.push(this.imagen);
       }, error=>{
         alert('ocurrio un error al enviar');
       })
     }else{
       alert('ingrese una URL');
     }
+  }
+
+  getImagenes(id) {
+    this.repositoryService.getImagenesEnviadas(id)
+      .then(data => {
+        console.log('data: ', data);
+        this.imagenes = data;
+      });
   }
 
 }

@@ -14,3 +14,28 @@
         </div>
     </div>
 </div>
+
+    <div class="formulario">
+      <div class="tabla">
+        <h2>Autos</h2>
+        <table class="autos">
+          <thead id="thead">
+          <tr>
+            <th>URL</th>
+            <th>Categoria</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let imagenList of imagenes">
+            <td>{{imagenList.url}}</td>
+            <td>{{imagenList.categoria}}</td>
+            <td>{{imagenList.titulo}}</td>
+            <td>{{imagenList.descripcion}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
